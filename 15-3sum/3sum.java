@@ -1,42 +1,43 @@
 class Solution {
-
     public List<List<Integer>> threeSum(int[] nums) {
-//finds the length
-        int n = nums.length;
-// list inside list 
         List<List<Integer>> ans = new ArrayList<>();
-// set list
-        HashSet<List<Integer>> uniqueTriplets = new HashSet<>();
-// loop for a 
-        for (int i = 0; i < n; i++) {
-// taking a with -
-            int target = -nums[i];
-// new set for every elemt 
-            HashSet<Integer> set = new HashSet<>();
-
-            for (int j = i + 1; j < n; j++) {
-
-                int third = target - nums[j];
-
-                if (set.contains(third)) {
-
-                    List<Integer> trip = new ArrayList<>();
-
-                    trip.add(nums[i]);
-                    trip.add(nums[j]);
-                    trip.add(third);
-
-                    Collections.sort(trip);
-
-                    uniqueTriplets.add(trip);
-                }
-
-                set.add(nums[j]);
+        Arrays.sort(nums);
+        int n= nums.length;
+        for(int i=0;i<n;i++)
+        {
+            int left=i+1;
+            int right=n-1;
+            if(i>0&&nums[i]==nums[i-1])
+            {
+                 continue;
+            }
+            while(left<right)
+            {
+               int sum=nums[i]+nums[left]+nums[right];
+               if(sum<0)
+               {
+                left++;
+               }
+               else if(sum>0)
+               {
+                right--;
+               }
+               else if(sum==0)
+               {
+                  List<Integer> ar = new ArrayList<>();
+                  ar.add(nums[i]);
+                  ar.add(nums[left]);
+                  ar.add(nums[right]);
+                  ans.add(ar);
+                  left++;
+                  right--;
+                  while(left<right&&nums[left]==nums[left-1])
+                  {
+                    left++;
+                  }
+               }
             }
         }
-
-        ans.addAll(uniqueTriplets);
-
         return ans;
     }
 }
