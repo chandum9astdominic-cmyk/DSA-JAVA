@@ -9,7 +9,6 @@ class Solution {
                 arr.add(i);
             }
         }
-
         return arr;
     }
 }
