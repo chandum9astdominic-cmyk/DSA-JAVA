@@ -2,6 +2,7 @@ class Solution {
     public int minElement(int[] nums) {
         ArrayList<Integer> arr = new ArrayList<>();
         int n = nums.length;
+        int lar=Integer.MAX_VALUE;
         for(int i=0;i<n;i++)
         {
             int sum=0;
@@ -12,16 +13,12 @@ class Solution {
               sum+=digit;
               nums[i]=nums[i]/10;
             }
-            arr.add(sum);
-        }
-        int min = Integer.MAX_VALUE;
-        for(int i: arr)
-        {
-            if(i<min)
+            nums[i]=sum;
+            if(nums[i]<lar)
             {
-                min=i;
+                lar=nums[i];
             }
         }
-        return min;
+        return lar;
     }
 }
