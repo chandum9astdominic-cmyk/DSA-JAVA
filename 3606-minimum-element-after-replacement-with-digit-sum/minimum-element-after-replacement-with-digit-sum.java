@@ -1,6 +1,6 @@
 class Solution {
     public int minElement(int[] nums) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        //ArrayList<Integer> arr = new ArrayList<>();
         int n = nums.length;
         int lar=Integer.MAX_VALUE;
         for(int i=0;i<n;i++)
