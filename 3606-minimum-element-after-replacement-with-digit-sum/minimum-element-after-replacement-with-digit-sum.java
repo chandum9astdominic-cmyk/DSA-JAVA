@@ -7,7 +7,7 @@ class Solution {
         {
             int sum=0;
             int digit=0;
-            while(nums[i]!=0)
+            while(nums[i]>0)
             {
               digit=nums[i]%10;
               sum+=digit;
