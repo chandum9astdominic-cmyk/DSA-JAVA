@@ -1,15 +1,10 @@
-
 class Solution {
     public int finalValueAfterOperations(String[] operations) {
-        int n = operations.length;
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            if (operations[i].equals("X++") || operations[i].equals("++X")) {
-                count += 1;
-            } else {
-                count -= 1;
-            }
+        int x = 0;
+        for(String o : operations)
+        {
+        x += (44 - o.charAt(1));
         }
-        return count;
+        return x;
     }
 }
